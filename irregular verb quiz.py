@@ -228,10 +228,10 @@ if __name__ == "__main__":
 
     print("\nQuiz finished. Results will be displayed shortly!\n")
     time.sleep(2)
-    print(Fore.CYAN + f"Correct answers: " + Fore.GREEN + f"{score['correct']}\n" + Fore.CYAN + "Wrong answers: " + Fore.RED + f"{score['wrong']}\n")
+    print(Fore.CYAN + f"Correct answers: " + Fore.GREEN + f"{score['correct']}\n" + Fore.CYAN + "Wrong answers: " + Fore.RED + f"{score['wrong']}")
     total = score['correct'] + score['wrong']
     accuracy = (score['correct'] / total) * 100
-    print(Fore.CYAN + "Accuracy: " + Fore.GREEN + f"½{accuracy:.1f}")
+    print(Fore.CYAN + "Accuracy: " + Fore.GREEN + f"%{accuracy:.1f}\n")
     print(Fore.YELLOW + "Congratulations! #ahmetemre3829")
     print(Fore.RED + "Press any key to quit...")
     while True:
