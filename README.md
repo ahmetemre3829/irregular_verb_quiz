@@ -16,12 +16,31 @@ This Python script is a simple command-line quiz designed to help you learn irre
 
 - **Python 3.x**
 - **colorama** library
-
     You can install `colorama` using pip:
 
     ```bash
     pip install colorama
     ```
 - **msvcrt** library
-
     This library is only used for Windows, can be removed or modified for other systems
+
+## How to Use
+
+- Download latest version and run it.
+- Enter the number of verbs you would like to be tested on.
+- Provide the past simple and past participle forms of the given verb.
+- The program will provide feedback after each answer.
+- At the end of the quiz, the program displays the results and waits for a key press before exiting.
+
+## Libraries Used
+
+- random: Used for random selection of verbs.
+- time: Used for pausing the program to enhance the user experience.
+- colorama: Used to output colored text to the console for better readability.
+- msvcrt: Used to wait for a key press before exiting in windows systems.
+
+## Contributing
+If you have any suggestions or would like to add more verbs, feel free to open a pull request.
+
+## License
+This project is licensed under the GNU GENERAL PUBLIC LICENSE License - see the LICENSE file for details.
