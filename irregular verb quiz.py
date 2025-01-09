@@ -190,12 +190,16 @@ def quiz(verbs, score):
     answer = input(Fore.MAGENTA + "Your answer: " + Fore.WHITE).strip().lower()
 
     # Check the answer
-    correct_answer = f"{past.lower()} {participle.lower()}"
-    if answer == correct_answer:
+    past_forms = past.lower().split('/')
+    participle_forms = participle.lower().split('/')
+    correct_answers = [f"{p} {pt}" for p in past_forms for pt in participle_forms]
+
+    if answer in correct_answers:
         print(Fore.GREEN + "Correct!\n")
         score["correct"] += 1
     else:
-        print(Fore.RED + "Wrong! The correct answer is:", Fore.GREEN + f"{correct_answer}\n")
+        correct_display = [f"{p} {pt}" for p in past_forms for pt in participle_forms]
+        print(Fore.RED + "Wrong! The correct answers are:", Fore.GREEN + f"{', '.join(correct_display)}\n")
         score["wrong"] += 1
 
 if __name__ == "__main__":
@@ -212,8 +216,8 @@ if __name__ == "__main__":
             print(Fore.RED + "Invalid input. Please enter a number.\n")
 
     print(Fore.YELLOW + f"Quiz is starting...\n")
-    time.sleep(2)
-    print("\n\n\n")
+    time.sleep(1)
+    print("\n\n")
     print(Fore.GREEN + "Quiz has started. Good luck!\n")
 
     score = {"correct": 0, "wrong": 0}
@@ -223,9 +227,12 @@ if __name__ == "__main__":
         quiz(remaining_verbs, score)
 
     print("\nQuiz finished. Results will be displayed shortly!\n")
-    time.sleep(3)
+    time.sleep(2)
     print(Fore.CYAN + f"Correct answers: " + Fore.GREEN + f"{score['correct']}\n" + Fore.CYAN + "Wrong answers: " + Fore.RED + f"{score['wrong']}\n")
-    print(Fore.YELLOW + "Congratulations! You are ready for the exam! Good luck!")
+    total = score['correct'] + score['wrong']
+    accuracy = (score['correct'] / total) * 100
+    print(Fore.CYAN + "Accuracy: " + Fore.GREEN + f"½{accuracy:.1f}")
+    print(Fore.YELLOW + "Congratulations! #ahmetemre3829")
     print(Fore.RED + "Press any key to quit...")
     while True:
         if msvcrt.kbhit():
